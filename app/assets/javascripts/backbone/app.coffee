@@ -16,3 +16,8 @@ window.App =
 
 $ ->
   App.init()
+
+
+
+LoadCurrentUser: (user) =>
+  App.current_user = user
