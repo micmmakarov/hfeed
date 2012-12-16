@@ -1,15 +1,15 @@
 class App.Views.Home extends Backbone.View
 
   initialize: ->
-    @data = new App.Models.Data()
-    @data.quotes.on 'reset', @render, @
-    @data.fetch()
+    @articles = new App.Collections.Articles()
+    @articles.on 'reset', @render, @
+    @articles.fetch()
 
   addOne: (quote) ->
-    view = new App.Views.Quote(model: quote)
-    $("#quotes").append view.render().el
+    view = new App.Views.Article(model: quote)
+    $("#articles").append view.render().el
 
   render: ->
     @$el.html HandlebarsTemplates['home']
-    @data.quotes.each(@addOne, @)
+    @articles.each(@addOne, @)
     @
