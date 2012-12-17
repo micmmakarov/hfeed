@@ -20,6 +20,7 @@ class App.Routers.main extends Backbone.Router
 
   index: ->
     @view = new App.Views.Articles({el:"#content", articles:@articles})
+    @view.render()
 
   new: ->
     @view = new App.Views.newArticle({articles:@articles})

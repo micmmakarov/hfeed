@@ -8,7 +8,8 @@
   %body
     .container-narrow
       =render "layouts/header"
-      = yield
+      #content
+        = yield
 
 
     -if user_signed_in?
