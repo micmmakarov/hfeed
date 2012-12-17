@@ -1,5 +1,7 @@
 class App.Models.Quote extends Backbone.Model
+
   initialize: ->
+
 
   addScore: ->
     $.ajax

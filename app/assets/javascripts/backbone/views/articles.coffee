@@ -6,8 +6,9 @@ class App.Views.Articles extends Backbone.View
     @articles.on 'add', @addOne, @
 
 
-  addOne: (article) ->
-    view = new App.Views.Article(model: article)
+  addOne: (article, index) ->
+    index = -1 if typeof(index) != "number"
+    view = new App.Views.Article(model: article, index:(index+1))
     @$el.find("#articles").append view.render().el
 
   render: ->

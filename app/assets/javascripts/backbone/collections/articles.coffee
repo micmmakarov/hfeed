@@ -5,3 +5,5 @@ class App.Collections.Articles extends Backbone.Collection
   url: '/api/articles'
 
   initialize: ->
+  comparator: (article) ->
+    -article.get "score"

@@ -1,7 +1,9 @@
 class App.Views.Article extends Backbone.View
   className: 'article'
-  initialize: ->
+  initialize: (options) ->
+    @index = options.index
     @model.on 'change', @render, @
+
   events:
     'click .add_score': 'add_score'
 
@@ -10,5 +12,7 @@ class App.Views.Article extends Backbone.View
     @model.addScore()
 
   render: ->
-    @$el.html HandlebarsTemplates['article'](@model.toJSON())
+    data = @model.toJSON()
+    data['index'] = @index
+    @$el.html HandlebarsTemplates['article'](data)
     @
