@@ -15,9 +15,11 @@ group :development do
   gem 'sqlite3'
 end
 group :assets do
+  gem 'therubyracer'
   gem 'sass-rails',   '~> 3.2.3'
   gem "uglifier"
-  gem 'bootstrap-sass'
+  gem 'less-rails'
+  gem "twitter-bootstrap-rails"
   gem "rails-backbone" # lest back bone that shit
   gem 'handlebars_assets' # More info here https://github.com/leshill/handlebars_assets
   gem 'hamlbars'
