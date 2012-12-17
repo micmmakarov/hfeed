@@ -9,3 +9,14 @@
     .container-narrow
       =render "layouts/header"
       = yield
+
+
+    -if user_signed_in?
+      :javascript
+        $(document).ready(function () {
+        window.LoadCurrentUser(#{current_user.to_json})
+        });
+
+    .overlay
+      .modal-holder
+        .modal-content

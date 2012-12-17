@@ -1,0 +1,3 @@
+%a.link.new-article.btn.btn-large{:href => "/new"}
+  %i.icon-plus
+  Add article

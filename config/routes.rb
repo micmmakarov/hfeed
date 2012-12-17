@@ -4,6 +4,7 @@ Hn::Application.routes.draw do
 
   namespace :api do
     resources :articles
+    post 'articles/:id/add_score' => "articles#add_score"
   end
 
   root :to => 'home#index'

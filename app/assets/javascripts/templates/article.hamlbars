@@ -1,1 +1,7 @@
-%a{:href => '{{link}}'} {{title}}
+%h3
+  {{id}}.
+  %a{:href => '{{link}}'} {{title}}
+  #{'/'}
+  ({{score}})
+  %a.add_score{:href => "#add score"}
+    Up

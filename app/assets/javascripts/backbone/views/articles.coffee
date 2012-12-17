@@ -1,15 +1,17 @@
 class App.Views.Articles extends Backbone.View
+  initialize: (options) ->
 
-  initialize: ->
-    @articles = new App.Collections.Articles()
+    @articles = options.articles
     @articles.on 'reset', @render, @
-    @articles.fetch()
+    @articles.on 'add', @addOne, @
 
-  addOne: (quote) ->
-    view = new App.Views.Article(model: quote)
-    $("#articles").append view.render().el
+
+  addOne: (article) ->
+    view = new App.Views.Article(model: article)
+    @$el.find("#articles").append view.render().el
 
   render: ->
     @$el.html HandlebarsTemplates['articles']
+    @$el.find("#controls").html HandlebarsTemplates['controls'] if App.current_user
     @articles.each(@addOne, @)
     @

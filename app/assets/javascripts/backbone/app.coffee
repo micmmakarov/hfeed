@@ -19,5 +19,5 @@ $ ->
 
 
 
-LoadCurrentUser: (user) =>
+window.LoadCurrentUser = (user) =>
   App.current_user = user

@@ -1,0 +1,16 @@
+%h1 Add a new article
+%form#new
+  %fieldset
+    %input.input-xlarge{:placeholder => "Title", :type => "text", :name => 'title'}/
+    %input.input-xlarge{:placeholder => "Url", :type => "text", :name => 'link'}/
+    %textarea{:placeholder => "Description", :type => "text", :name => 'description'}/
+    %p Posted by {{this.name}}
+
+
+%a.create-article.btn.btn-success{:href => '#'}
+  Post article
+
+
+
+%a.close-modal{:href => "#"}
+  X
