@@ -6,7 +6,6 @@ gem 'koala'
 gem 'devise'
 gem "haml-rails"
 gem 'coffee-rails', '~> 3.2.1'
-gem "contenteditable", :github => 'micmmakarov/contenteditable', :branch => :master
 gem "fog", "~> 1.3.1"
 gem 'httparty'
 group :development do
