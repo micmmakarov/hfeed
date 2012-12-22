@@ -54,6 +54,8 @@ module Hn
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.precompile += ['bootstrap']
+    config.assets.precompile += ['twitter']
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
