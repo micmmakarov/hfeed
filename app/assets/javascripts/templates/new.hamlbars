@@ -2,7 +2,7 @@
 %form#new
   %fieldset
     %input.input-xlarge{:placeholder => "Title", :type => "text", :name => 'title'}/
-    %input.input-xlarge{:placeholder => "Url", :type => "text", :name => 'link'}/
+    %input.input-xlarge{:placeholder => "Url", :type => "text", :name => 'link', :value => 'http://'}/
     %textarea{:placeholder => "Description", :type => "text", :name => 'description'}/
     %p Posted by {{this.name}}
 

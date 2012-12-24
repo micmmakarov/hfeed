@@ -8,6 +8,7 @@ Hn::Application.routes.draw do
   end
 
   root :to => 'home#index'
+  get ':provider/callback' => "home#callback"
 
   match '*path' => "home#index"
 
