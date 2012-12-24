@@ -6,4 +6,4 @@
   %a.add_score{:href => "#add score"}
     Up
 
-%p posted {{date}}
+%p posted {{date}} by {{author}}

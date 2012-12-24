@@ -10,12 +10,17 @@ class Article < ActiveRecord::Base
 
   def add_score(user)
     score = Score.where(:user_id => user.id, :article_id => id)[0]
+
     if score.blank?
       Score.create(:user_id => user.id, :article_id => id)
     else
       score.destroy
     end
 
+  end
+
+  def author
+    user.name if user.present?
   end
 
 end
