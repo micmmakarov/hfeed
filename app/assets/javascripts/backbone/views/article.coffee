@@ -14,5 +14,6 @@ class App.Views.Article extends Backbone.View
   render: ->
     data = @model.toJSON()
     data['index'] = @index
+    data['date'] = moment(data.created_at).startOf('hour').fromNow()
     @$el.html HandlebarsTemplates['article'](data)
     @

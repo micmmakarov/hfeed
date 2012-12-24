@@ -5,3 +5,5 @@
   ({{score}})
   %a.add_score{:href => "#add score"}
     Up
+
+%p posted {{date}}

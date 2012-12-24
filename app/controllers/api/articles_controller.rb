@@ -2,7 +2,7 @@ class Api::ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @articles = Article.all
+    @articles = Article.last_day
     render json: @articles.to_json(:methods => :score)
   end
 
