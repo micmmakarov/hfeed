@@ -1,4 +1,6 @@
 %h2 Sign in
+= render "shared/facebook_link"
+%p OR
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %div
     = f.label :email
@@ -14,4 +16,4 @@
       = f.label :remember_me
   %div= f.submit "Sign in"
 = render "devise/shared/links"
-= render "shared/facebook_link"
+
