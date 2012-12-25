@@ -23,11 +23,10 @@ class HomeController < ApplicationController
             user.password = user.password_confirmation = Devise.friendly_token.first(10)
             user.name = fb_me["name"]
             user.email = fb_me["email"]
-            user.facebook = + fb_me["id"]
+            user.facebook = fb_me["id"]
             user.facebook_token = session[:access_token]
             user.save!
           end
-          binding.pry
           sign_in(user)
         end
 
