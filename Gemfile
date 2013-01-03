@@ -8,6 +8,7 @@ gem "haml-rails"
 gem 'coffee-rails', '~> 3.2.1'
 gem "fog", "~> 1.3.1"
 gem 'httparty'
+gem 'hipchat'
 group :development do
   gem 'pry'
   gem 'pry-nav'

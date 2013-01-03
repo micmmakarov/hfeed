@@ -17,7 +17,7 @@ class HomeController < ApplicationController
           current_user.facebook_token = session[:access_token]
           current_user.save!
         else
-          user = User.where(:facebook => fb_me["id"])
+          user = User.where(:facebook => fb_me["id"])[0]
           if user.blank?
             user = User.new
             user.password = user.password_confirmation = Devise.friendly_token.first(10)

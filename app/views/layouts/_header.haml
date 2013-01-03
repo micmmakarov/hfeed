@@ -4,8 +4,6 @@
       %a.link{:href => "/home", 'data-page' => 'home'} Home
     %li
       %a.link{:href => "/about"} About
-    %li
-      %a.link{:href => "/fuck"} Fuck
     -if user_signed_in?
       %li
         = link_to("Logout from #{current_user.name}", destroy_user_session_path)

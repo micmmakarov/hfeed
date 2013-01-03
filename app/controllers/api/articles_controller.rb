@@ -23,6 +23,7 @@ class Api::ArticlesController < ApplicationController
     @article.user_id = current_user.id
 
     if @article.save
+      Notification.notify_creation(@article, current_user)
       render json: @article.to_json(:methods => [:score, :author])
     else
       render json: @article.to_json(:methods => [:score, :author])
