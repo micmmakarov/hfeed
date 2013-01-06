@@ -4,7 +4,11 @@
   #{'/'}
   ({{score}})
   %a.add_score{:href => "#add score"}
+    {{#if scorable}}
     %i.icon-hand-up
+    {{else}}
+    %i.icon-hand-down
+    {{/if}}
 
 
 %p

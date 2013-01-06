@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  cattr_accessor :current_user
   attr_accessible :description, :link, :title
   has_many :scores
   has_many :comments
@@ -7,6 +8,12 @@ class Article < ActiveRecord::Base
 
   def score
     scores.length
+  end
+
+  def scorable
+    if current_user.present?
+      not Score.where(:user_id => current_user.id, :article_id => id).first.present?
+    end
   end
 
   def add_score(user)

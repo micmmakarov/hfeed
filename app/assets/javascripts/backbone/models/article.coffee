@@ -11,3 +11,4 @@ class App.Models.Article extends Backbone.Model
       url: "/api/articles/#{@id}/add_score"
       success: (data) =>
         @set('score', data.score)
+        @set('scorable', data.scorable)
