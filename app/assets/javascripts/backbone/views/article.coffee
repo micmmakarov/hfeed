@@ -33,4 +33,8 @@ class App.Views.Article extends Backbone.View
     data['date'] = moment(data.created_at).startOf('hour').fromNow()
     @$el.html HandlebarsTemplates['article'](data)
     @$el.find(".comments-toggle").html HandlebarsTemplates['comments_toggle'](@comments_shown)
+    if @comments_shown
+      @comments = new App.Views.Comments(article: @model)
+      @$el.find(".comments-area").html @comments.render().el
+
     @
