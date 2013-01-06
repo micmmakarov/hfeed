@@ -1,3 +1,4 @@
 %form.new-comment-form
-  %input.new-comment{:type => 'text', :placeholder => 'your comment..'}
-  %input.submit.btn{:type => 'submit', :value => 'Comment'}
+  .input-append
+    %input.span2.new-comment{:type => 'text', :placeholder => 'your comment..'}
+    %button.submit.btn{:type => 'submit'} Comment
