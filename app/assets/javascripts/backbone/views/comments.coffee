@@ -12,7 +12,9 @@ class App.Views.Comments extends Backbone.View
     'submit .new-comment-form': 'newComment'
 
   newComment: ->
-    comment = $('.new-comment').val()
+    new_comment_field = $('.new-comment')
+    comment = new_comment_field.val()
+    new_comment_field.val("")
     @comments.create(text:comment, article_id:@article.get('id'))
     false
 
