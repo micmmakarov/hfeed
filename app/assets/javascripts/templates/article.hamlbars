@@ -4,6 +4,8 @@
   #{'/'}
   ({{score}})
   %a.add_score{:href => "#add score"}
-    Up
+    %i.icon-hand-up
+  %span.comments-toggle
 
-%p posted {{date}} by {{author}}
+%p posted {{date}} by {{author}}, {{comments_number}} comments
+.comments-area

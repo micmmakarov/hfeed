@@ -11,6 +11,7 @@ class App.Views.Articles extends Backbone.View
     view = new App.Views.Article(model: article, index:(index+1))
     @$el.find("#articles").append view.render().el
 
+
   render: ->
     @$el.html HandlebarsTemplates['articles']
     @$el.find("#controls").html HandlebarsTemplates['controls'] if App.current_user

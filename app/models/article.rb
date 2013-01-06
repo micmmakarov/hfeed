@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
-  attr_accessible :description, :link, :title, :user_id
+  attr_accessible :description, :link, :title
   has_many :scores
+  has_many :comments
   belongs_to :user
   scope :last_day, where('created_at   > ?', 24.hours.ago)
 
@@ -21,6 +22,10 @@ class Article < ActiveRecord::Base
 
   def author
     user.name if user.present?
+  end
+
+  def comments_number
+    comments.length
   end
 
 end

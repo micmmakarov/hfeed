@@ -1,7 +1,9 @@
-class App.Models.Quote extends Backbone.Model
+class App.Models.Article extends Backbone.Model
 
   initialize: ->
-
+    comments_json = (@get 'comments') || []
+    @comments = new App.Collections.Comments
+    @comments.url = "/api/articles/#{@id}/comments"
 
   addScore: ->
     $.ajax

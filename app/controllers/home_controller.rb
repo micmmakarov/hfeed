@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   end
 
   def callback
-
       if params[:code]
         session[:access_token] = session[:oauth].get_access_token(params[:code])
       end

@@ -3,19 +3,19 @@ class Api::ArticlesController < ApplicationController
 
   def index
     @articles = Article.last_day
-    render json: @articles.to_json(:methods => [:score, :author])
+    render json: @articles.to_json(:methods => [:score, :author, :comments_number])
   end
 
   def show
     @article = Article.find(params[:id])
 
-    render json: @article.to_json(:methods => [:score, :author])
+    render json: @article.to_json(:methods => [:score, :author, :comments_number])
   end
 
   def add_score
     @article = Article.find(params[:id])
     @article.add_score(current_user)
-    render json: @article.to_json(:methods => [:score, :author])
+    render json: @article.to_json(:methods => [:score, :author, :comments_number])
   end
 
   def create
@@ -23,10 +23,10 @@ class Api::ArticlesController < ApplicationController
     @article.user_id = current_user.id
 
     if @article.save
-      Notification.notify_creation(@article, current_user)
-      render json: @article.to_json(:methods => [:score, :author])
+      #Notification.notify_creation(@article, current_user)
+      render json: @article.to_json(:methods => [:score, :author, :comments_number])
     else
-      render json: @article.to_json(:methods => [:score, :author])
+      render json: @article.to_json(:methods => [:score, :author, :comments_number])
     end
   end
 
@@ -34,9 +34,9 @@ class Api::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     unless @article.user_id != current_user.id
       if @article.update_attributes(params[:article])
-        render json: @article.to_json(:methods => [:score, :author])
+        render json: @article.to_json(:methods => [:score, :author, :comments_number])
       else
-        render json: @article.to_json(:methods => [:score, :author])
+        render json: @article.to_json(:methods => [:score, :author, :comments_number])
       end
     end
   end

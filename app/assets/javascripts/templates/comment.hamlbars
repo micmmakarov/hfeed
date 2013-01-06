@@ -1,0 +1,8 @@
+.comment
+  {{text}} by
+  %b {{author}}
+  {{date}}
+  {{#if destroyable}}
+  %a.remove{:href => "#"}
+    %i.icon-remove
+  {{/if}}

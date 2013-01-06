@@ -1,6 +1,6 @@
 class App.Collections.Articles extends Backbone.Collection
 
-  model: App.Models.Quote
+  model: App.Models.Article
 
   url: '/api/articles'
 

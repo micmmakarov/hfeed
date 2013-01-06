@@ -1,9 +1,13 @@
 Hn::Application.routes.draw do
 
+
+
   devise_for :users
 
   namespace :api do
-    resources :articles
+    resources :articles do
+      resources :comments
+    end
     post 'articles/:id/add_score' => "articles#add_score"
   end
 
