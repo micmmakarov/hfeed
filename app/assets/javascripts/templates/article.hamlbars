@@ -5,7 +5,9 @@
   ({{score}})
   %a.add_score{:href => "#add score"}
     %i.icon-hand-up
-  %span.comments-toggle
 
-%p posted {{date}} by {{author}}, {{comments_number}} comments
+
+%p
+  posted {{date}} by {{author}}, {{comments_number}} comments
+  %a.comments-toggle{:href => "#"}
 .comments-area

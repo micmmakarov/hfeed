@@ -9,6 +9,7 @@ class Api::CommentsController < ApplicationController
     end
 
     render json: @comments.to_json(:methods => [:author])
+    #({:include => { :comments => { :methods => :author }}, :methods => [:author]})
   end
 
   def show

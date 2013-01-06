@@ -1,7 +1,7 @@
 {{#if this}}
-hide comments
+hide
 %i.icon-comment
 {{else}}
-show comments
+show
 %i.icon-comment
 {{/if}}

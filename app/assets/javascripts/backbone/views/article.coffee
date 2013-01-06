@@ -25,6 +25,7 @@ class App.Views.Article extends Backbone.View
     else
       @comments.unbind()
       @comments.remove()
+    false
 
   render: ->
     data = @model.toJSON()
