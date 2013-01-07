@@ -1,8 +1,13 @@
-.comment
-  {{text}} by
-  %b {{author}}
-  {{date}}
-  {{#if destroyable}}
-  %a.remove{:href => "#"}
-    %i.icon-remove
-  {{/if}}
+.comment.well
+  .comment-body
+    {{text}}
+  %p.comment-sig
+    by {{author}}
+    %span.timeago
+      {{date}}
+
+    {{#if destroyable}}
+    %a.remove{:href => "#"}
+      %i.icon-trash
+      Remove
+    {{/if}}

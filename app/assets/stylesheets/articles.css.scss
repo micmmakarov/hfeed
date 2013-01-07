@@ -98,3 +98,22 @@
     margin: 4px 4px 0;
   }
 }
+
+.comment {
+  &.well {
+    background: #f5f5f5;
+  }
+  .comment-body {
+    margin: 0 0 10px;
+  }
+  .comment-sig {
+    font-size: .75rem;
+    margin: 0;
+  }
+  .timeago {
+    color: #aaa;
+  }
+  .remove {
+    
+  }
+}
