@@ -12,6 +12,8 @@
 
 
 %p
-  posted {{date}} by {{author}}, {{comments_number}} comments
+  posted {{date}} by {{author}},
   %a.comments-toggle{:href => "#"}
+    {{comments_number}} comments
+    %span.message
 .comments-area

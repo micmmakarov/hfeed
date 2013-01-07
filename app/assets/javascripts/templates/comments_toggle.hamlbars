@@ -1,7 +1,5 @@
 {{#if this}}
-hide
-%i.icon-comment
+\-
 {{else}}
-show
-%i.icon-comment
++
 {{/if}}

@@ -26,7 +26,7 @@ class App.Views.Article extends Backbone.View
   comments_toggle: ->
     @comments_shown = !@comments_shown
 
-    @$el.find(".comments-toggle").html HandlebarsTemplates['comments_toggle'](@comments_shown)
+    @$el.find(".comments-toggle .message").html HandlebarsTemplates['comments_toggle'](@comments_shown)
 
     if @comments_shown
       $.cookie(@cookie_key, "shown", { expires: 10000 });
@@ -43,7 +43,7 @@ class App.Views.Article extends Backbone.View
     data['index'] = @index
     data['date'] = moment(data.created_at).startOf('hour').fromNow()
     @$el.html HandlebarsTemplates['article'](data)
-    @$el.find(".comments-toggle").html HandlebarsTemplates['comments_toggle'](@comments_shown)
+    @$el.find(".comments-toggle .message").html HandlebarsTemplates['comments_toggle'](@comments_shown)
     if @comments_shown
       @comments = new App.Views.Comments(article: @model)
       @$el.find(".comments-area").html @comments.render().el
