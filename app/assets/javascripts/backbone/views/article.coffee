@@ -3,8 +3,17 @@ class App.Views.Article extends Backbone.View
   initialize: (options) ->
     @index = options.index
     @model.on 'change', @render, @
-    @comments_shown = false
     @comments = {}
+    @comments_shown_init()
+
+  comments_shown_init: ->
+    @cookie_key = "article #{@model.get('id')}"
+    cookie_key = @cookie_key
+    if $.cookie(cookie_key)
+      @comments_shown = true
+    else
+      @comments_shown = false
+
 
   events:
     'click .add_score': 'add_score'
@@ -20,9 +29,11 @@ class App.Views.Article extends Backbone.View
     @$el.find(".comments-toggle").html HandlebarsTemplates['comments_toggle'](@comments_shown)
 
     if @comments_shown
+      $.cookie(@cookie_key, "shown", { expires: 10000 });
       @comments = new App.Views.Comments(article: @model)
       @$el.find(".comments-area").html @comments.render().el
     else
+      $.cookie(@cookie_key, null);
       @comments.unbind()
       @comments.remove()
     false
