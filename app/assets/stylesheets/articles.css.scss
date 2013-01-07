@@ -101,7 +101,10 @@
 
 .comment {
   &.well {
-    background: #f5f5f5;
+    background: #f9f9f9;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+    border: 0;
   }
   .comment-body {
     margin: 0 0 10px;
