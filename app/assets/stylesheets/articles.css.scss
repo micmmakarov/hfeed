@@ -117,3 +117,17 @@
     
   }
 }
+
+
+.article {
+  position:relative;
+  .index {
+    position:absolute;
+    margin-left: -60px;
+    width:50px;
+    text-align:right;
+    margin-top:4px;
+    display:block;
+    color:#808080;
+  }
+}

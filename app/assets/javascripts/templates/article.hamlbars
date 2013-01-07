@@ -1,7 +1,7 @@
-%h4
+%h4.index
   {{index}}.
+%h4
   %a{:href => '{{link}}'} {{title}}
-  #{'/'}
   ({{score}})
 
   {{#if current_user}}
