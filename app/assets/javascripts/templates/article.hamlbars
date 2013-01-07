@@ -3,12 +3,22 @@
   %a{:href => '{{link}}'} {{title}}
   #{'/'}
   ({{score}})
-  %a.add_score{:href => "#add score"}
-    {{#if scorable}}
+
+  {{#if current_user}}
+  {{#if scorable}}
+  %a.add_score.scorable{:href => "#add score"}
     %i.icon-thumbs-up
-    {{else}}
-    %i.icon-thumbs-down
-    {{/if}}
+  {{else}}
+  %a.add_score.pressed{:href => "#add score"}
+    .not-hover
+      %i.icon-thumbs-up
+    .hover
+      %i.icon-thumbs-down.icon-white
+  {{/if}}
+  {{else}}
+  %a.add_score{:href => "#add score"}
+    %i.icon-thumbs-up
+  {{/if}}
 
 
 %p

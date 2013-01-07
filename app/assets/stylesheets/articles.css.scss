@@ -67,10 +67,33 @@
 
 
 .add_score {
+  background:#EEEEEE;
+  &.pressed {
+    background:#adff2f;
+    .hover {
+      display:none;
+    }
+    .not-hover {
+      display:block;
+    }
+    &:hover {
+      background:#8b0000;
+      .hover {
+        display:block;
+      }
+      .not-hover {
+        display:none;
+      }
+    }
+  }
+  &.scorable {
+    &:hover {
+      background:#adff2f;
+    }
+  }
   display:inline-block;
   border-radius:5px;
   padding:3px;
-  background:#A4E1FF;
   i {
     margin: 4px 4px 0;
   }

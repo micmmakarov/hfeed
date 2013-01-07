@@ -42,6 +42,7 @@ class App.Views.Article extends Backbone.View
     data = @model.toJSON()
     data['index'] = @index
     data['date'] = moment(data.created_at).startOf('hour').fromNow()
+    data['current_user'] = App.current_user
     @$el.html HandlebarsTemplates['article'](data)
     @$el.find(".comments-toggle .message").html HandlebarsTemplates['comments_toggle'](@comments_shown)
     if @comments_shown
