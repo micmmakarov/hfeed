@@ -5,9 +5,9 @@
   ({{score}})
   %a.add_score{:href => "#add score"}
     {{#if scorable}}
-    %i.icon-hand-up
+    %i.icon-thumbs-up
     {{else}}
-    %i.icon-hand-down
+    %i.icon-thumbs-down
     {{/if}}
 
 
