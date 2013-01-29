@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   belongs_to :user
   scope :last_day, where('created_at   > ?', 24.hours.ago)
 
+
   def score
     scores.length
   end
@@ -34,5 +35,12 @@ class Article < ActiveRecord::Base
   def comments_number
     comments.length
   end
+
+  def Article.last_day_or_seven
+    if last_day.length < 7
+      Article.order("created_at DESC").limit(7)
+    end
+  end
+
 
 end
