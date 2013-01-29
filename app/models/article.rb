@@ -42,5 +42,18 @@ class Article < ActiveRecord::Base
     end
   end
 
+  def Article.dayly_news
+    start_date = Article.first.created_at
+    end_date = Article.last.created_at
+    articles = []
+    days = (end_date.to_date - start_date.to_date).to_i
+    days.times do |t|
+      date = start_date + t.days
+      article = Article.where(:created_at => date).order("created_at DESC").first
+      articles.push(article)
+    end
+    articles
+  end
+
 
 end
