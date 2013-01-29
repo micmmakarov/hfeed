@@ -42,17 +42,20 @@ class Article < ActiveRecord::Base
     end
   end
 
-  def Article.dayly_news
+  def Article.highlights
     start_date = Article.first.created_at
     end_date = Article.last.created_at
-    articles = []
+    hls = []
     days = (end_date.to_date - start_date.to_date).to_i
     days.times do |t|
-      date = start_date + t.days
-      article = Article.where(:created_at => date).order("created_at DESC").first
-      articles.push(article)
+      date = (start_date + t.days + 1).to_date
+      #articles = Article.where(:created_at => date).order(" DESC").first
+      articles = Article.where("created_at between (?) and (?)", date, (date + 24.hours - 1.second))
+      articles.sort_by {|a| a.scores.length}
+      hls.push(articles[0]) if articles.length > 0
     end
-    articles
+    hls.reverse!
+    hls
   end
 
 

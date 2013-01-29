@@ -1,0 +1,29 @@
+%h4.index-date
+  The most popular post for {{date}}
+%h4
+  %a{:href => '{{link}}'} {{title}}
+  ({{score}})
+
+  {{#if current_user}}
+  {{#if scorable}}
+  %a.add_score.scorable{:href => "#add score"}
+    %i.icon-thumbs-up
+  {{else}}
+  %a.add_score.pressed{:href => "#add score"}
+    .not-hover
+      %i.icon-thumbs-up
+    .hover
+      %i.icon-thumbs-down.icon-white
+  {{/if}}
+  {{else}}
+  %a.add_score{:href => "#add score"}
+    %i.icon-thumbs-up
+  {{/if}}
+
+
+%p
+  posted {{date}} by {{author}},
+  %a.comments-toggle{:href => "#"}
+    {{comments_number}} comments
+    %span.message
+.comments-area

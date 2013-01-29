@@ -20,9 +20,19 @@ class App.Routers.main extends Backbone.Router
     ''            : 'index'
     'new'         : 'new'
     'about'       : 'about'
+    'highlights'  : 'highlights'
 
   index: ->
     @view = new App.Views.Articles({el:"#content", articles:@articles})
+    @view.render()
+
+  highlights: ->
+    #if not @highlights
+    @highlights = new App.Collections.Articles()
+    @highlights.comparator = ''
+    @highlights.url = "api/articles/highlights"
+    @highlights.fetch()
+    @view = new App.Views.Highlights({el:"#content", articles:@highlights})
     @view.render()
 
   new: ->

@@ -4,7 +4,11 @@ class Api::ArticlesController < ApplicationController
   def index
     Article.current_user = current_user if user_signed_in?
     #Thread.current[:user] = current_user
-    @articles = Article.last_day_or_seven
+    if params[:data] == 'highlights'
+      @articles = Article.highlights
+    else
+      @articles = Article.last_day_or_seven
+    end
     render json: @articles.to_json(:methods => [:score, :scorable, :author, :comments_number])
   end
 

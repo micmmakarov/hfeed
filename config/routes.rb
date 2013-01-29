@@ -5,6 +5,7 @@ Hn::Application.routes.draw do
   devise_for :users
 
   namespace :api do
+    get 'articles/highlights' => "articles#index", :data => 'highlights'
     resources :articles do
       resources :comments
     end
